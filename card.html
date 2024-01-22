@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=650px, user-scalable=yes" />
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Birthstone';
+            src: url('../font/Birthstone.ttf');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'BalonkuRegular';
+            src: url('../font/BalonkuRegular.otf');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Lobster';
+            src: url('../font/Lobster.ttf');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            background: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            position: relative;
+            inset: 0;
+            width: 600px;
+            height: 800px;
+            background: #cccccc;
+        }
+
+        .card .backgruondScene {
+            position: absolute !important;
+            top: 100px;
+            width: 600px;
+            height: 600px;
+        }
+
+        .card .dot {
+            position: absolute;
+        }
+
+        .card .watercolor {
+            position: absolute;
+            top: 410px;
+            left: 50px;
+            /* border: 1px solid black; */
+            opacity: 1;
+            z-index: 10;
+            filter: drop-shadow(0 0 2px rgba(61, 50, 50, 0.4));
+        }
+
+        .card .gift {
+            position: absolute;
+            top: 420px;
+            left: 60px;
+            /* border: 1px solid black; */
+            opacity: 1;
+            z-index: 10;
+            transform: rotate(5deg);
+        }
+
+        .card .flag1 {
+            position: absolute;
+            top: 150px;
+            left: 50px;
+            /* border: 1px solid black; */
+        }
+
+        .card .flag2 {
+            position: absolute;
+            top: 150px;
+            left: 290px;
+            /* border: 1px solid black; */
+        }
+
+        .card .hat {
+            position: absolute;
+            top: 0px;
+            left: 350px;
+            transform: rotate(-6deg);
+            filter: drop-shadow(0 0 2px rgba(61, 50, 50, 0.4));
+        }
+
+        .card .text0 {
+            font-family: "BalonkuRegular";
+            position: absolute;
+            top: 270px;
+            left: 80px;
+            font-size: 3em;
+            /* border: 1px solid black; */
+            filter: drop-shadow(0 0 1px rgba(61, 50, 50, 0.4));
+            /* backdrop-filter: blur(10px); */
+            /* box-shadow: inset 10px 10px 10px rgba(255, 255, 255, 0.7),
+                        inset -10px -10px 10px rgba(0, 0, 0, 0.05); */
+        }
+
+        .card .text1 {
+            font-family: "Birthstone";
+            position: absolute;
+            top: 400px;
+            left: 270px;
+            font-size: 2em;
+            filter: drop-shadow(0 0 1px rgba(61, 50, 50, 0.4));
+            /* border: 1px solid black; */
+        }
+
+        .card .text2 {
+            font-family: "Lobster";
+            position: absolute;
+            top: 460px;
+            left: 270px;
+            font-size: 2em;
+            z-index: 10000;
+            /* border: 1px solid black; */
+            filter: drop-shadow(0 0 1px rgba(61, 50, 50, 0.4));
+        }
+
+        .card .miniGift1 {
+            position: absolute;
+            top: 290px;
+            left: 300px;
+            /* transform: rotate(-10deg); */
+            animation: animateG 6s linear infinite;
+        }
+
+        @keyframes animateG {
+            0% {
+                transform: scale(1) rotate(-10deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(20deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg);
+            }
+        }
+
+        .card .dotV {
+            position: absolute;
+            top: 180px;
+            left: 130px;
+            transform: rotate(10deg);
+            animation: animateD 5.5s linear infinite;
+        }
+
+        @keyframes animateD {
+            0% {
+                transform: scale(1) rotate(-10deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(20deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg);
+            }
+        }
+
+        .card .bubbles1 {
+            position: absolute;
+            top: 400px;
+            left: 400px;
+            transform: rotate(20deg);
+            animation: animateB 4.5s linear infinite;
+        }
+
+        @keyframes animateB {
+            0% {
+                transform: scale(1) rotate(-10deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(20deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg);
+            }
+        }
+
+        .card .lineBubbles1 {
+            position: absolute;
+            top: 300px;
+            left: 450px;
+            transform: rotate(-10deg);
+            animation: animateG 4.7s linear infinite;
+        }
+
+        @keyframes animateG {
+            0% {
+                transform: scale(1) rotate(-10deg);
+            }
+
+            40% {
+                transform: scale(1.2) rotate(0deg);
+            }
+
+            60% {
+                transform: scale(1) rotate(10deg)
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg);
+            }
+        }
+
+        .card .WW1 {
+            position: absolute;
+            top: 210px;
+            left: 470px;
+            animation: animateW 5s linear infinite;
+        }
+
+        @keyframes animateW {
+            0% {
+                transform: scale(1) rotate(-10deg) translateY(1px);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(20deg) translateY(2px);
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg) translateY(1px);
+            }
+        }
+
+        .card .star1 {
+            position: absolute;
+            top: 440px;
+            left: 470px;
+            transform: rotate(20deg);
+            animation: animateS1 3s ease-in-out infinite;
+        }
+
+        @keyframes animateS1 {
+            0% {
+                transform: scale(1) rotate(20deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(20deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(20deg)
+            }
+        }
+
+        .card .bowTie {
+            position: absolute;
+            top: 455px;
+            left: 265px;
+            /* transform: rotate(-10deg); */
+            animation: animateBT 4.9s linear infinite;
+        }
+
+        @keyframes animateBT {
+            0% {
+                transform: scale(1) rotate(-40deg);
+            }
+
+            30% {
+                transform: scale(1.3) rotate(-30deg);
+            }
+
+            60% {
+                transform: scale(1.1) rotate(-20deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-40deg)
+            }
+        }
+
+        .card .four_leaf_clover {
+            position: absolute;
+            top: 540px;
+            left: 360px;
+            animation: animateFLC 3.7s linear infinite;
+        }
+
+        @keyframes animateFLC {
+            0% {
+                transform: scale(1) rotate(-10deg);
+            }
+
+            30% {
+                transform: scale(1.3) rotate(0deg);
+            }
+
+            60% {
+                transform: scale(1.1) rotate(20deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <svg class="backgruondScene">
+            <path transform="translate(-25, -25) scale(1.1)" d="
+                M 50 300 C 56 360, 50 450, 100 500
+                S 200 551, 360 550  S 550 550, 550 300 S 550 50, 300 50, S 30 30, 50 300 Z"
+                style="stroke: #0000007a; fill: #dddddd; stroke-linecap:round; stroke-width: .1" />
+            <path class="line" transform="translate(15, 15) scale(0.95)" d="
+                M 50 300 C 56 360, 50 450, 100 500
+                S 200 551, 360 550  S 550 550, 550 300 S 550 50, 300 50, S 30 30, 50 300 Z"
+                style="stroke: #222; fill: none; stroke-linecap:round; stroke-width: 4" />
+            <path class="line" transform="translate(0, 0) scale(1)" d="
+                M 120 50, S 60 55, 50 110" style="stroke: #222; fill: none; stroke-linecap:round; stroke-width: 4" />
+            <path class="line" transform="translate(0, 0) scale(1)" d="
+                M 450 550  S 530 550, 540 470 "
+                style="stroke: #222; fill: none; stroke-linecap:round; stroke-width: 4" />
+            <path class="line" transform="translate(30, 30) scale(0.9)" d="
+                M 50 300 C 56 360, 50 450, 100 500
+                S 200 551, 360 550  S 550 550, 550 300 S 550 50, 300 50, S 30 30, 50 300 Z"
+                style="stroke: #444; fill: none; stroke-linecap:round; stroke-width: 2; stroke-dasharray: 9" />
+        </svg>
+
+        <svg class="flag1" width="250px" height="200px">
+            <path d="
+                M 20 70 S 150 70, 200 5"
+                style="stroke: #000000ea; fill: none; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 40 70 Q 41 80, 40 100 Q 44 95, 50 90 Q 57 95, 60 99 Q 59 80, 60 68"
+                style="stroke: #000000ea; fill: #f77070; stroke-linecap:round; stroke-width: 2" />
+
+            <path d="
+                M 86 64 Q 92 76, 90 97 Q 100 93, 103 86 Q 108 90, 117 93 Q 113 76, 112 58"
+                style="stroke: #000000ea; fill: #ccbe3c; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 135 50 Q 147 60, 154 82 Q 160 76, 162 65 Q 168 69, 179 68 Q 177 55, 162 38"
+                style="stroke: #000000ea; fill: #3ccc9c; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 180 26 Q 186 30, 200 50 Q 205 45, 205 35 Q 212 38, 220 37 Q 207 20, 196 12"
+                style="stroke: #000000ea; fill: #cd7be6; stroke-linecap:round; stroke-width: 2" />
+        </svg>
+        <svg class="flag2" width="250px" height="200px">
+            <path d="
+                M 20 20 S 120 120, 240 100"
+                style="stroke: #000000ea; fill: none; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 31 30 Q 20 40, 20 60 Q 35 65, 54 48
+                M 72 60 Q 60 75, 60 99 Q 72 100, 99 75
+                M 115 83 Q 106 100, 115 130 Q 140 120 , 150 95
+                M 170 100 Q 170 120, 185 145 Q 205 130, 210 103 Z"
+                style="stroke: #000000ea; fill: none; stroke-linecap:round; stroke-width: 3" />
+
+        </svg>
+
+        <svg class="hat" width="150px" height="250px">
+            <path d="
+            M 60 90 S 35 140, 23 180 S 50 220, 75 220 S 135 220, 122 180 S 112 140, 90 90 
+            M 90 90 S 120 80, 100 55 S 50 40, 44 50 S 30 80, 60 90"
+                style="stroke: #000000ea; fill: #dcdcdc; stroke-linecap:round; stroke-width: .2; stroke-dasharray: 9" />
+            <path d="
+                M 75 80 Q 45 140, 30 200 C 45 215, 105 215, 115 200, Q 105 140 75 80 Z"
+                style="stroke: #000000ea; fill: none; stroke-linecap:round; stroke-width: 3" />
+            <path d="
+                M 62 110 Q 75 109, 86 105 Q 81 95, 75 80 Q 74 80, 62 110 Z"
+                style="stroke: #000000ea; fill: #dcdcdc; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 62 110 Q 75 109, 86 105 Q 93 120, 100 140 Q 75 150, 46 150 Q 57 120, 62 110 Z"
+                style="stroke: #000000ea; fill: #ffd000; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 100 140 Q 75 150, 46 150 Q 39 170, 34 185 Q 75 187, 109 172 Q 105 157, 100 140"
+                style="stroke: #000000ea; fill: #dcdcdc; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 34 185 Q 75 187, 109 172 Q 113 187, 115 200 C 105 215, 45 215, 30 200 Q 32 192, 34 185"
+                style="stroke: #000000ea; fill: #ffd000; stroke-linecap:round; stroke-width: 2" />
+            <path d="
+                M 75 77 C 40 85, 40 50, 75 77 C 30 40, 70 40, 75 77 C 65 45, 90 45, 75 77 C 100 40, 105 77, 75 77 Z"
+                style="stroke: #000000ea; fill: none; stroke-linecap:round; stroke-width: 3" />
+        </svg>
+
+        <svg class="watercolor" width="250px" height="250px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgba(123, 125, 255, 0.616); stop-opacity:0.5" />
+                    <stop offset="50%" style="stop-color:rgba(117, 92, 255, 0.753); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgba(138, 65, 255, 0.801); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <path d="
+                M 10 80 C 10 240, 60 240, 150 240 S 220 210, 230 150 S 170 10, 130 10 S 10 10, 10 80"
+                style="stroke: #000000ce; fill: #dcdcdc; stroke-linecap:round; stroke-width: 0.3; stroke-dasharray: 9" />
+            <path transform="translate(14,14) scale(0.9)" d="
+                M 10 80 C 10 240, 60 240, 150 240 S 220 210, 230 150 S 170 10, 130 10 S 10 10, 10 80"
+                style="stroke: #000000ce; fill: url(#grad1); stroke-linecap:round; stroke-width: 0" />
+        </svg>
+
+
+
+        <svg class="gift" width="250px" height="250px">
+            <defs>
+                <filter id="blurMe1">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".2" />
+                </filter>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(103, 69, 255); stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:rgb(44, 29, 255); stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(162, 80, 255); stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="
+                M 40 95 Q 35 125, 40 185 S 40 190, 45 190 Q 80 195, 165 190 S 170 190, 170 185  Q 175 125, 170 90"
+                style="stroke: #000000e3; fill: url(#grad2); stroke-linecap:round; stroke-width: 4; filter: url(#blurMe1);" />
+            <path
+                d="
+                M 35 95 Q 100 95, 175 90 S 180 90, 180 85 Q 185 60, 180 55 S 180 50, 175 50 Q 100 55, 35 50 S 30 50, 30 55 Q 25 60, 30 90 S 30 95, 35 95"
+                style="stroke: #000000f1; fill: url(#grad2); stroke-linecap:round; stroke-width: 4; filter: url(#blurMe1);" />
+            <path d="
+                M 85 53 L 85 93 L 115 93 L 115 53 Z"
+                style="stroke: #000000ee; fill: #f7a40b; stroke-linecap:round; stroke-width: 4; filter: url(#blurMe1);" />
+            <path d="
+                M 85 94 L 85 193 L 115 193 L 115 94 Z"
+                style="stroke: #000000ee; fill: #f7a40b; stroke-linecap:round; stroke-width: 4; filter: url(#blurMe1);" />
+            <path d="
+                M 92 30 Q 85 30, 55 20 S 40 12, 55 51 L 92 51 M 88 40 Q 80 40, 75 37 M 88 45 Q 80 45, 78, 50"
+                style="stroke: #000000f5; fill: #f7a40b; stroke-linecap:round; stroke-width: 4; filter: url(#blurMe1);" />
+            <path
+                d="
+                M 108 30 Q 115 30, 145 15 S 170 12, 150 51 L 108 51 M 112 40 Q 120 40, 125 37 M 112 45 Q 120 45, 124, 50"
+                style="stroke: #000000f5; fill: #f7a40b; stroke-linecap:round; stroke-width: 4; filter: url(#blurMe1);" />
+            <path d="
+                M 90 52 C 80 20, 120 20, 110 52 Z"
+                style="stroke: #000000ee; fill: #fac564; stroke-linecap:round; stroke-width: 4; filter: url(#blurMe1);" />
+        </svg>
+        </svg>
+
+        <svg class="dot dot1" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(230, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot2" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(177, 68, 187); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot3" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(236, 166, 189); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(109, 122, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot4" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(113, 119, 27); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot5" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot6" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot7" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot8" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot9" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot10" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot11" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot12" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot13" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot14" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot15" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot16" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot17" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot18" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot19" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+        <svg class="dot dot20" width="20px" height="20px">
+            <defs>
+                <filter id="blurMe">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                </filter>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(205, 166, 236); stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:rgb(157, 109, 179); stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="10" cy="10" rx="8" ry="8"
+                style="stroke: none;fill: url(#grad1); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+        </svg>
+
+        <svg class="WW1" width="30px" height="30px">
+            <ellipse cx="25" cy="7" rx="1" ry="1" style="stroke:rgba(0, 0, 0, 0.849);fill:none; stroke-width: .7" />
+            <path d="M 4 15 C 4 17, 5 20, 7 16 C 9 20, 9 17, 11 15
+            M 13 15 C 13 17, 14 20, 16 16 C 18 20, 19 17, 20 15
+            M 7 21 C 7 23, 8 26, 10 22 C 12 26, 13 23, 14 21
+            M 16 21 C 16 23, 17 26, 19 22 C 21 26, 22 23, 23 21 
+            M 25 15 Z M 16 5 18 5 M 17 4 17 6"
+                style="stroke:rgba(0, 0, 0, 0.856); fill:none; stroke-linecap:round; stroke-width: .7" />
+        </svg>
+
+        <svg class="star1" width="30px" height="30px">
+            <ellipse cx="9" cy="23" rx="1" ry="1"
+                style="stroke:rgba(0, 0, 0, 0.945);fill: #fff12800; stroke-width: .5" />
+            <path d="M 11 6 Q 12 8, 14 10 Q 12 11, 11 14 Q 9 11, 8 10 Q 11 8, 11 6 Z
+            M 17 13 Q 17 16, 21 18 Q 18 20, 17 23 S 16 20, 13 18 Q 16 16, 17 13 Z
+            M 11 3 Z M 5 10 Z M 17 10 Z M 24 18 Z M 17 26 Z
+            M 6 16 L 6 18 M 5 17 L 7 17"
+                style="stroke:rgba(7, 7, 7, 0.877); fill: #f8c51d; stroke-linecap:round; stroke-width: .7" />
+        </svg>
+
+        <svg class="bowTie" width="30px" height="30px">
+
+            <path d="M 17 13 C 22 7, 26 13, 24 15 C 26 17, 22 23, 17 17
+               M 13 13 C 8 7, 4 13, 6 15 C 4 17, 8 23, 13 17 M 12 15 L 10 15 M 18 15 L 20 15"
+                style="stroke:rgba(0, 0, 0, 0.863); fill: #ff9203; stroke-linecap:round; stroke-width: .5" />
+            <ellipse cx="15" cy="15" rx="3" ry="3"
+                style="stroke:rgba(0, 0, 0, 0.897);fill: #e0da14; stroke-width: .5" />
+        </svg>
+
+        <svg class="four_leaf_clover" width="30px" height="30px">
+            <path d="M 18 12 C 26 8, 26 22, 18 18 C 22 26, 8 26, 13 18
+               C 4 22, 4 8, 13 12 C 8 4, 23 4, 18 12 Z
+               M 14 14 L 16 16 M 16 14 L 14 16"
+                style="stroke:rgba(0, 0, 0, 0.863); fill: #60c70c; stroke-linecap:round; stroke-width: .5" />
+            <path d="M 18 18 S 25 20, 25 27"
+                style="stroke:rgba(0, 0, 0, 0.849); fill:none; stroke-linecap:round; stroke-width: 1" />
+        </svg>
+
+        <svg class="bubbles1" width="30px" height="30px">
+            <ellipse cx="9" cy="9" rx="5" ry="5" style="stroke:rgba(0, 0, 0, 0.911);fill:none; stroke-width: .5" />
+            <ellipse cx="17" cy="18" rx="3" ry="3" style="stroke:rgba(0, 0, 0, 0.856);fill:none; stroke-width: .5" />
+            <ellipse cx="10" cy="22" rx="2" ry="2" style="stroke:rgba(0, 0, 0, 0.918);fill:none; stroke-width: .5" />
+            <ellipse cx="25" cy="9" rx="1" ry="1" style="stroke:rgba(0, 0, 0, 0.863);fill:none; stroke-width: .5" />
+            <path d="M 20 5 L 20 7 M 19 6 L 21 6 M 21 12 Z"
+                style="stroke:rgba(0, 0, 0, 0.911); fill:none; stroke-linecap:round; stroke-width: .7" />
+        </svg>
+
+        <svg class="lineBubbles1" width="30px" height="30px">
+            <ellipse cx="12" cy="6" rx="4" ry="4" style="stroke:rgba(0, 0, 0, 0.87);fill:none; stroke-width: .5" />
+            <ellipse cx="22" cy="12" rx="2" ry="2" style="stroke:rgba(0, 0, 0, 0.87);fill:none; stroke-width: .5" />
+            <ellipse cx="8" cy="13" rx="1" ry="1" style="stroke:rgba(0, 0, 0, 0.911);fill:none; stroke-width: .5" />
+            <path d="M 18 25 L 18 27 M 17 26 L 19 26 M 23 22 Z
+            M 3 27 C 5 20, 15 21, 16 13 M 4 16 Z"
+                style="stroke:rgba(0, 0, 0, 0.89); fill:none; stroke-linecap:round; stroke-width: .7" />
+        </svg>
+
+        <svg class="miniGift1" width="20px" height="20px">
+            <path d="
+                M 5 10 Q 4 10, 5 18 Q 10 19, 15 18 Q 16 18, 15 10 Q 15 11, 5 10
+                M 10 11 Q 10 12, 10 18 M 10 10 M 5 10 Q 4 11, 5 7 Q 7 6, 15 7
+                Q 16 11, 15 10 M 10 6 C 2 4, 8 1, 10 6 C 10 0, 19 2, 10 6"
+                style="stroke:rgba(0, 0, 0, 0.877); fill: none; stroke-linecap:round; stroke-width: .7" />
+        </svg>
+        <svg class="dotV" width="30px" height="30px">
+            <ellipse cx="24" cy="9" rx="1" ry="1" style="stroke:rgba(0, 0, 0, 0.884);fill:none; stroke-width: .5" />
+            <path d="
+            M 4 5 C 7 4, 13 15, 15 15 S 16 10, 16 5 C 12 5, 7 15, 4 15 S 4 5, 4 5 Z
+            M 5 20 L 5 22, M 4 21 L 6 21 M 4 24 Z M 20 5 Z"
+                style="stroke:rgba(0, 0, 0, 0.897); fill:#f486f8e8; stroke-linecap:round; stroke-width: .7" />
+            <path d="
+            M 10 19 C 14 20, 15 24, 20 25 S 20 22, 22 19 C 17 19, 16 25, 11 25 S 13 24, 10 19 Z"
+                style="stroke:rgba(0, 0, 0, 0.897); fill:#cb72ffe3; stroke-linecap:round; stroke-width: .7" />
+        </svg>
+
+
+
+
+        <svg class="text0" width="400px" height="300px">
+            <path d="M 60 6 Q 100 0, 200 5 S 220 5, 220 35 S 215 55, 260 55 S 310 55, 310 90
+                     S 310 120, 135 125 S 15 120, 3 60 S 50 10, 60 6 Z"
+                style="stroke: #000000ce; fill: #dcdcdc; stroke-linecap:round; stroke-width: .1; stroke-dasharray: 9;" />
+            <path id="my_path1" d="M 15 60 Q 100 55, 240 60" fill="transparent"></path>
+            <path id="my_path2" d="M 15 110 Q 100 105, 300 110" fill="transparent"></path>
+
+            <text>
+                <textPath xlink:href="#my_path1">HAPPY</textPath>
+                <textPath xlink:href="#my_path2"> BIRTHDAY</textPath>
+            </text>
+        </svg>
+        <svg class="text1" width="70px" height="70px">
+            <path d="M 40 12 S 50 10, 55 30 S 20 70, 10 40 S 30 10, 40 12 Z"
+                style="stroke: #000000ce; fill: #dcdcdc; stroke-linecap:round; stroke-width: .1; stroke-dasharray: 9;" />
+            <path id="my_to" d="M 20 40 L 40 40" fill="transparent"></path>
+            <text>
+                <textPath xlink:href="#my_to">To</textPath>
+            </text>
+        </svg>
+        <svg class="text2" width="270" height="100">
+            <path transform="translate(-5, -10) scale(1.08, 1.2)"
+                d="M 200 20 S 265 10, 245 50 S 250 60, 113 70 S 10 70, 10 40 S 30 20, 200 20"
+                style="stroke: #000000d8; fill: #dcdcdc; stroke-linecap:round; stroke-width: 0.1; stroke-dasharray: 9;" />
+            <path transform="translate(5, 0)"
+                d="M 200 20 S 265 10, 245 50 S 250 60, 113 70 S 10 70, 10 40 S 30 20, 200 20"
+                style="stroke: #000000b7; fill: #dcdcdc; stroke-linecap:round; stroke-width: 1.5; stroke-dasharray: 9;" />
+            <path id="my_HH" transform="translate(5, 0)" d="M 20 60 Q 120 55, 260 60" fill="transparent"></path>
+            <text>
+                <textPath xlink:href="#my_HH">HOÀNG HUYỀN</textPath>
+            </text>
+        </svg>
+    </div>
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var dotPositions = [
+                { top: 500, left: 50 },
+                { top: 170, left: 280 },
+                { top: 100, left: 520 },
+                { top: 420, left: 60 },
+                { top: 340, left: 40 },
+                { top: 380, left: 70 },
+                { top: 170, left: 320 },
+                { top: 570, left: 30 },
+                { top: 590, left: 50 },
+                { top: 230, left: 560 },
+                { top: 650, left: 120 },
+                { top: 600, left: 300 },
+                { top: 660, left: 60 },
+                { top: 630, left: 280 },
+                { top: 260, left: 550 },
+                { top: 460, left: 20 },
+                { top: 650, left: 240 },
+                { top: 350, left: 500 },
+                { top: 450, left: 540 },
+                { top: 500, left: 520 },
+            ];
+
+            var dots = document.querySelectorAll(".card .dot");
+            dots.forEach(function (dot, index) {
+                dot.style.top = dotPositions[index].top + "px";
+                dot.style.left = dotPositions[index].left + "px";
+
+                var randomScale = Math.random() * (1.6 - 1) + 1;
+
+                // Tạo định danh duy nhất cho mỗi linearGradient
+                var gradientId = "grad" + (index + 3);
+
+                dot.innerHTML = `
+                    <defs>
+                        <filter id="blurMe">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+                        </filter>
+                        <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:${getRandomColor()}; stop-opacity:${getRandomSize()}" />
+                            <stop offset="100%" style="stop-color:${getRandomColor()}; stop-opacity:${getRandomSize()}" />
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="10" cy="10" rx="8" ry="8"
+                        style="stroke: none;fill: url(#${gradientId}); stroke-width: 1; z-index: 1; filter: url(#blurMe);" />
+                `;
+
+                dot.style.transform = "scale(" + randomScale + ")";
+            });
+
+            function getRandomColor() {
+                var hue = Math.floor(Math.random() * 360);
+                var saturation = Math.floor(Math.random() * 100);
+                var lightness = Math.floor(Math.random() * 1) + 40;
+                return "hsl(" + hue + "," + saturation + "%," + lightness + "%)";
+            }
+            function getRandomSize() {
+                return Math.random() * (0.6 - 0.2) + 0.2;
+            }
+        });
+    </script>
+</body>
+
+</html>

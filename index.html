@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=600px, user-scalable=yes" />
+    <title>hh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            background: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gift {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bodyed {
+            position: relative;
+            width: 400px;
+            height: 600px;
+        }
+
+        .lid {
+            position: relative;
+            transform-origin: 0 100px;
+        }
+
+        .start-animation {
+            animation: lidAnimation 3s ease-in-out forwards;
+        }
+
+        @keyframes lidAnimation {
+            0% {
+                transform: translateY(150px);
+            }
+
+            50% {
+                transform: translateY(100px);
+            }
+
+            100% {
+                transform: translate(-25px, 90px) rotate(-20deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="./card.html" class="gift">
+        <svg class="bodyed">
+            <path class="box" transform="translate (0, 150)" d="M 105 105 L 105 300 L 295 300 L 295 105 Z
+                         M 180 105 L 180 300 L 220 300 L 220 105 Z"
+                style="stroke:rgb(255, 217, 0); fill: none; stroke-linecap:round; stroke-width: 2" />
+            <path class="lid" transform="translate (0, 150)" d="M 100 100 L 300 100 L 300 150 L 100 150 Z 
+                         M 180 100 L 180 150 Z
+                         M 220 100 L 220 150 Z
+                         M 200 100 C 100 100, 110 50, 130 50 S 160 90, 200 100 Z
+                         M 200 100 C 300 100, 290 50, 270 50 S 240 90, 200 100 Z"
+                style="stroke:rgb(255, 217, 0); fill: #333; stroke-linecap:round; stroke-width: 2" />
+        </svg>
+    </a>
+    <script>
+        document.querySelector('a').addEventListener('click', function (e) {
+            e.preventDefault();
+            var linkUrl = this.getAttribute('href');
+            var svgElement = document.querySelector('.lid');
+
+            svgElement.classList.add('start-animation');
+
+            setTimeout(function () {
+                window.location = linkUrl;
+            }, 3500);
+        });
+
+    </script>
+</body>
+
+</html>
