@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=600px, user-scalable=yes" />
     <title>SN_HH</title>
     <style>
+        @font-face {
+            font-family: 'Rosemary';
+            src: url('./font/Rosemary.ttf');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -31,6 +39,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .showGift {
+            visibility: visible;
+            opacity: 1;
         }
 
         .bodyed {
@@ -61,10 +76,114 @@
                 transform: translate(-25px, 90px) rotate(-20deg);
             }
         }
+
+        .text-container {
+            font-family: 'Rosemary', sans-serif;
+            position: re;
+            width: 300px;
+            height: 200px;
+            background: #dcdcdc;
+            border-radius: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 24px;
+        }
+
+        .backgroundText {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .typed-text {
+            display: inline-block;
+            position: relative;
+            top: 70px;
+            left: 10px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .Vdiv {
+            font-family: 'Rosemary', sans-serif;
+            width: 200px;
+            height: 30px;
+            background-color: rgb(23, 23, 23);
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px 10px / 8px 8px;
+        }
+
+        .Vdiv p {
+            position: relative;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #dcdcdc;
+        }
+
+        .hidden-div {
+            font-family: 'Rosemary', sans-serif;
+            display: none;
+            width: 200px;
+            height: 30px;
+            background-color: rgb(23, 23, 23);
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px 10px / 8px 8px;
+        }
+
+        .h {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .hidden-div p {
+            position: relative;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #dcdcdc;
+        }
     </style>
 </head>
 
 <body>
+    <div class="backgroundText">
+        <div class="text-container" id="text-container">
+            <span class="typed-text"></span>
+        </div>
+        <div class="hidden-div" id="myHiddenDiv">
+            <p>Cậu nhấn để tiếp tục nha.</p>
+        </div>
+    </div>
+
     <a href="./card.html" class="gift">
         <svg class="bodyed">
             <path class="box" transform="translate (0, 150)" d="M 105 105 L 105 300 L 295 300 L 295 105 Z
@@ -77,8 +196,21 @@
                          M 200 100 C 300 100, 290 50, 270 50 S 240 90, 200 100 Z"
                 style="stroke:rgb(255, 217, 0); fill: #333; stroke-linecap:round; stroke-width: 2" />
         </svg>
+        <div class="Vdiv">
+            <p>Cậu nhấn vào hộp quà nè.</p>
+        </div>
     </a>
+
     <script>
+        var backgroundText = document.querySelector('.backgroundText');
+        var gift = document.querySelector('.gift');
+        setTimeout(function () {
+            backgroundText.onclick = function () {
+                backgroundText.classList.add('h');
+                gift.classList.add('showGift');
+            };
+        }, 4000);
+
         document.querySelector('a').addEventListener('click', function (e) {
             e.preventDefault();
             var linkUrl = this.getAttribute('href');
@@ -91,6 +223,50 @@
             }, 3500);
         });
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const textContainer = document.getElementById("text-container");
+            const typedText = document.querySelector(".typed-text");
+            const words = "Tớ làm hơi xấu tí mong cậu đừng chê nhé.".split(" ");
+            let wordIndex = 0;
+            let charIndex = 0;
+
+            function typeNextChar() {
+                if (wordIndex < words.length) {
+                    const word = words[wordIndex];
+
+                    if (charIndex <= word.length) {
+                        typedText.textContent = words.slice(0, wordIndex).join(" ") + " " + word.substring(0, charIndex);
+                        charIndex++;
+                        setTimeout(() => {
+                            requestAnimationFrame(typeNextChar);
+                        }, 50);
+                    } else {
+                        // Move to the next word
+                        wordIndex++;
+                        charIndex = 0;
+                        setTimeout(() => {
+                            // Add a space before the next word
+                            typedText.textContent = words.slice(0, wordIndex).join(" ") + " ";
+                            requestAnimationFrame(typeNextChar);
+                        }, 50);
+                    }
+                }
+                // Kiểm tra xem textContainer đã đạt đến giới hạn max-width chưa
+                if (textContainer.scrollWidth >= textContainer.clientWidth) {
+                    textContainer.style.whiteSpace = "normal";
+                }
+            }
+
+            // Start typing animation
+            typeNextChar();
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                // Show the hidden div
+                document.getElementById("myHiddenDiv").style.display = "block";
+            }, 4000); // 30 seconds in milliseconds
+        });
     </script>
 </body>
 
